@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ACIAF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/serviceACIAF" />
+      <xsd:import schemaLocation="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IACIAF_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IACIAF_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IACIAF_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IACIAF_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadArchivedAgentRequest">
+    <wsdl:part name="parameters" element="tns:DownloadArchivedAgentRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoteACIAFAgentInstanceArchiveFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteACIAFAgentInstanceArchiveFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteACIAFAgentInstanceArchiveFileInfo_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="IACIAF_ReceiveAgentInstanceArchiveFROMRemoteACIAFServer_OutputMessage" />
+  <wsdl:portType name="IACIAF">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IACIAF/GetData" message="tns:IACIAF_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IACIAF/GetDataResponse" message="tns:IACIAF_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IACIAF/GetDataUsingDataContract" message="tns:IACIAF_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IACIAF/GetDataUsingDataContractResponse" message="tns:IACIAF_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAgentInstanceArchiveToRemoteACIAFServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IACIAF/SendAgentInstanceArchiveToRemoteACIAFServer" name="DownloadArchivedAgentRequest" message="tns:DownloadArchivedAgentRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IACIAF/SendAgentInstanceArchiveToRemoteACIAFServerResponse" name="RemoteACIAFAgentInstanceArchiveFileInfo" message="tns:RemoteACIAFAgentInstanceArchiveFileInfo" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveAgentInstanceArchiveFROMRemoteACIAFServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IACIAF/ReceiveAgentInstanceArchiveFROMRemoteACIAFServer" name="RemoteACIAFAgentInstanceArchiveFileInfo" message="tns:RemoteACIAFAgentInstanceArchiveFileInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IACIAF/ReceiveAgentInstanceArchiveFROMRemoteACIAFServerResponse" message="tns:IACIAF_ReceiveAgentInstanceArchiveFROMRemoteACIAFServer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IACIAF" type="tns:IACIAF">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IACIAF/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IACIAF/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAgentInstanceArchiveToRemoteACIAFServer">
+      <soap:operation soapAction="http://tempuri.org/IACIAF/SendAgentInstanceArchiveToRemoteACIAFServer" style="document" />
+      <wsdl:input name="DownloadArchivedAgentRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoteACIAFAgentInstanceArchiveFileInfo">
+        <soap:header message="tns:RemoteACIAFAgentInstanceArchiveFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteACIAFAgentInstanceArchiveFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveAgentInstanceArchiveFROMRemoteACIAFServer">
+      <soap:operation soapAction="http://tempuri.org/IACIAF/ReceiveAgentInstanceArchiveFROMRemoteACIAFServer" style="document" />
+      <wsdl:input name="RemoteACIAFAgentInstanceArchiveFileInfo">
+        <soap:header message="tns:RemoteACIAFAgentInstanceArchiveFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteACIAFAgentInstanceArchiveFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ACIAF">
+    <wsdl:port name="BasicHttpBinding_IACIAF" binding="tns:BasicHttpBinding_IACIAF">
+      <soap:address location="http://localhost/serviceACIAF/ACIAF.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

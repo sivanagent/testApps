@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f978b95a-6918-4bae-930f-27d2fec08b3c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/serviceACIAF/ACIAF.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ACIAF.xsd" MetadataType="Schema" ID="557c6788-f620-482b-9b86-409bd78a46ca" SourceId="1" SourceUrl="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd1" />
+    <MetadataFile FileName="ACIAF1.xsd" MetadataType="Schema" ID="59e6b680-c7a5-47bd-bf45-0e0997c94427" SourceId="1" SourceUrl="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd2" />
+    <MetadataFile FileName="ACIAF2.xsd" MetadataType="Schema" ID="7db8c162-591c-4841-9fc2-5b3427e50753" SourceId="1" SourceUrl="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd0" />
+    <MetadataFile FileName="ACIAF.wsdl" MetadataType="Wsdl" ID="ae8eff07-b154-4232-a03e-68aab7078fdc" SourceId="1" SourceUrl="http://localhost/serviceACIAF/ACIAF.svc?wsdl" />
+    <MetadataFile FileName="ACIAF3.xsd" MetadataType="Schema" ID="100cb47c-cae6-4887-9a1e-35cba32ce5f1" SourceId="1" SourceUrl="http://localhost/serviceACIAF/ACIAF.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
